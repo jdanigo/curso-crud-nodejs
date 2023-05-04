@@ -8,7 +8,7 @@
 - JWT para proteger la api
 
 # Para ejecutar la aplicacion
-
+Debe renombrar el archivo .env-example a .env y colocar el connection string de mongodb.
 ```
 cd pedidos-restaurante
 npm install
