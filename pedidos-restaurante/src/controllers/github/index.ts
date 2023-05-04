@@ -42,9 +42,6 @@ const sendInvite = async (req: Request, res: Response): Promise<void> => {
     }else{
         res.status(400).json({message: "The username is mandatory"});
     }
-
-    
-    
 }
 
 
