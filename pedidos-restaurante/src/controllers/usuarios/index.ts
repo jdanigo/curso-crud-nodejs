@@ -4,7 +4,9 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 const getAllUsers = async (req: Request, res: Response): Promise<void> => {
- 
+    
+    console.log("mostrando req.userId", req.userId);
+
     try {
         const allUsers = await prisma.user.findMany();
         console.log("mostrando usuarios creados", allUsers);
