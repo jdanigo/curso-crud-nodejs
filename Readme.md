@@ -17,12 +17,12 @@
 - [x] Instalar Prisma
 - [x] Instalar Express
 - [ ] Instalar Socket.io
-- [ ] Instalar Librerias necesarias para trabajar con JWT
+- [x] Instalar Librerias necesarias para trabajar con JWT
 - [ ] Que es un middleware
 - [ ] Que son las rutas privadas y rutas publicas
-- [ ] Crear middleware para proteger las rutas
-- [ ] Crear modelo de la base de datos (Analisis POO)
+- [x] Crear middleware para proteger las rutas
 
+- [ ] Crear modelo de la base de datos (Analisis POO)
 - [ ] Crear el controlador para clientes (CRUD COMPLETO)
 - [ ] Crear el controlador para pedidos (CRUD COMPLETO)
 - [ ] Crear el controlador para mesas (CRUD COMPLETO)
