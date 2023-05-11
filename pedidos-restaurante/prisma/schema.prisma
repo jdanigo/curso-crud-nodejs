@@ -11,11 +11,73 @@ datasource db {
 }
 
 model User {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  name String
-  lastName String
-  email String @unique
-  password String
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  lastName  String
+  email     String   @unique
+  password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Customers {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  lastName  String
+  email     String
+  document  String    @unique
+  address   Address[]
+  orders    Orders[]
+  phone     String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Address {
+  id         String     @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  adress     String
+  customer   Customers? @relation(fields: [customerId], references: [id])
+  customerId String     @db.ObjectId()
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+}
+
+model Categories {
+  id        String     @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  products  Products[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model Products {
+  id         String      @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  price      Float
+  category   Categories? @relation(fields: [categoryId], references: [id])
+  categoryId String?     @db.ObjectId
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+}
+
+model Orders {
+  id         String     @id @default(auto()) @map("_id") @db.ObjectId
+  customer   Customers? @relation(fields: [customerId], references: [id]) //campo virtual
+  customerId String?    @db.ObjectId  
+  products   Json[]
+  subTotal   Float
+  total      Float
+  table      Tables? @relation(fields: [tableId], references: [id]) //campo virtual
+  tableId    String?    @db.ObjectId  
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+}
+
+model Tables {
+  id         String     @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  orders     Orders[]
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
 }
