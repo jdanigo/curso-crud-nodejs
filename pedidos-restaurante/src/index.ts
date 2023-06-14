@@ -8,10 +8,10 @@ const prisma = new PrismaClient();
 
 //Conectarnos con la base de datos
 
-let connString: string = process.env.DATABASE_URL ?? "";
+let connString: string = process.env.DATABASE_URL ?? "mongodb+srv://jdanigo:tatan3423387lome@cluster0.epdo8.mongodb.net/pedidos-restaurante";
 mongoose.connect(connString)
 .then(()=>console.log("se ha contectado a la base de datos"))
-.catch(()=> console.log("no se pudo contectar a la base de datos"))
+.catch((e)=> console.log("no se pudo contectar a la base de datos",e))
 
 //Crear una instancia de express
 const app = express();
@@ -36,9 +36,7 @@ prisma.$on('beforeExit', (error)=>{
     Sentry.captureException(error)
 })
 
-app.listen(3000, ()=> {
-    console.log("servidor de node iniciado en el puerto 3000");
-})
+export default app;
 
 //ES6 -> import y export
 //ES5 -> require y module.export
