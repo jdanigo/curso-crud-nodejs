@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "mongodb"
-  url      = "mongodb+srv://jdanigo:tatan3423387lome@cluster0.epdo8.mongodb.net/pedidos-restaurante"
+  url      = env("DATABASE_URL")
 }
 
 model User {

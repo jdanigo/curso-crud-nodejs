@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 
 //Conectarnos con la base de datos
 
-let connString: string = process.env.DATABASE_URL ?? "mongodb+srv://jdanigo:tatan3423387lome@cluster0.epdo8.mongodb.net/pedidos-restaurante";
+let connString: string = process.env.DATABASE_URL ?? "";
 mongoose.connect(connString)
 .then(()=>console.log("se ha contectado a la base de datos"))
 .catch((e)=> console.log("no se pudo contectar a la base de datos",e))
